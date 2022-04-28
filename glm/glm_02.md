@@ -54,5 +54,7 @@ public class ExampleLootModifierSerializer extends GlobalLootModifierSerializer<
 }
 ```
 &emsp;&emsp;当然，你写成内部类也可以，我们这里暂时写成外部类的样式。对于我们的第一个序列化器而言这就已经是完成品了——因为我们没有什么特别的操作，不需要额外的write也不需要在read上花上什么功夫。  
-&emsp;&emsp;read方法在读取一个JSON时候调用，而write方法则是把修改器实例写入到JSON时候才会调用。write方法通常也只会在使用DataGenerator的时候才会起作用，我们因为暂时不需要DataGenerator所以直接如此返回，但不要返回null。
+&emsp;&emsp;read方法在读取一个JSON时候调用，而write方法则是把修改器实例写入到JSON时候才会调用。write方法通常也只会在使用数据生成器[^数据生成器]的时候才会起作用，因为我们暂时不需要所以直接如此返回，但不要返回null。
 &emsp;&emsp;之后在注册表类里进行注册就可以使用了。序列化器的使用方法参见概述。
+
+[^数据生成器]: 即Data Generator，详见第四章
