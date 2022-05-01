@@ -33,21 +33,21 @@ this.add("example_modifier", EXAMPLE_MODIFIER_SERIALIZER, new ExampleModifier(
 ***
 ## 战利品表条件数组  
 &emsp;&emsp;在概述中我们说过条件是按照有序加载的，具体的代码实现就是遍历数组。我们重点讲一下数组的元素怎么安排。
-> &emsp;&emsp;如果你要表示**同时满足所有条件**完成与连接，直接添加一个数组元素就可以了。通常来说你的修改器继承的都是`LootModifier`类，所以他们一定是并列关系。
-> &emsp;&emsp;如果你要表示**满足任一条件**完成或连接，则在你的元素中调用`or`方法嵌套一个条件，生成器会自动转换。
-> &emsp;&emsp;条件可以组合使用**与或连接**。
-> &emsp;&emsp;如果你的情况比较特殊，则根据你的实际情况进行处理。
+> &emsp;&emsp;如果你要表示**同时满足所有条件**完成与连接，直接添加一个数组元素就可以了。通常来说你的修改器继承的都是`LootModifier`类，所以他们一定是并列关系。  
+> &emsp;&emsp;如果你要表示**满足任一条件**完成或连接，则在你的元素中调用`or`方法嵌套一个条件，生成器会自动转换。  
+> &emsp;&emsp;条件可以组合使用**与或连接**。  
+> &emsp;&emsp;如果你的情况比较特殊，则根据你的实际情况进行处理。  
 ***
 
 ## 原版战利品表条件列表
-&emsp;&emsp;本表只含有原版和纯Forge 条件下所有的战利品表条件。
-&emsp;&emsp;未完待续，正在考虑使用更好的排版方式。
+&emsp;&emsp;本表只含有原版和纯Forge 条件下所有的战利品表条件。  
+&emsp;&emsp;未完待续，正在考虑使用更好的排版方式。  
 ```
-AlternativeLootItemCondition：就是我们所经常使用的“或”连接，通常不会直接调用它而是使用condition.or()
-InvertedLootItemCondition：对条件取反。使用时调用InvertedLootItemCondition.invert(condition)
-LootItemRandomChanceCondition：取随机数，满足随机数时条件为真。使用时调用LootItemRandomChanceCondition.randomChance(float)
-LootItemRandomChanceWithLootingCondition：带抢夺附魔加成时取随机数，常用于怪物掉落物的处理，使用时调用LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(float, float)
-LootTableIdCondition：取特定战利品表，若当前修改的战利品表ID为所取值时为真。只能在使用GLM时候调用。
-LootTableIdCondition使用时调用LootTableIdCondition.builder(ID)
-CanToolPerformAction：判断手中工具是否可以使用某个特定的ToolAction。使用时调用CanToolPerformAction.canToolPerformAction(ToolAction)
+AlternativeLootItemCondition：就是我们所经常使用的“或”连接，通常不会直接调用它而是使用condition.or()  
+InvertedLootItemCondition：对条件取反。使用时调用InvertedLootItemCondition.invert(condition)  
+LootItemRandomChanceCondition：取随机数，满足随机数时条件为真。使用时调用LootItemRandomChanceCondition.randomChance(float)  
+LootItemRandomChanceWithLootingCondition：带抢夺附魔加成时取随机数，常用于怪物掉落物的处理，使用时调用LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(float, float)  
+LootTableIdCondition：取特定战利品表，若当前修改的战利品表ID为所取值时为真。只能在使用GLM时候调用。  
+LootTableIdCondition使用时调用LootTableIdCondition.builder(ID)  
+CanToolPerformAction：判断手中工具是否可以使用某个特定的ToolAction。使用时调用CanToolPerformAction.canToolPerformAction(ToolAction)  
 ```
